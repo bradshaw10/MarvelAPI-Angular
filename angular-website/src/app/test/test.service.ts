@@ -15,8 +15,7 @@ export class TestService implements OnInit {
   }
 
   getData(): Observable<any> {
-    return this.http.get<any>('https://gateway.marvel.com:443/v1/public/characters?apikey=dbfc4354c405c403c362f63cc60242a1').subscribe(data => {
-    this.marvel = data;
-  })
+    console.log('hello')
+    return this.http.get('https://gateway.marvel.com/v1/public/characters?ts=1&apikey=dbfc4354c405c403c362f63cc60242a1&hash=7cfdc10da4f83dd1de3aaf98894c9f86')
   }
 }

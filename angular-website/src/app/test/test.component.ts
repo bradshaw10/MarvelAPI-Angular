@@ -7,12 +7,19 @@ import { TestService } from './test.service';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  marveldata: any;
+  marveldata = [];
+  heroName = "";
 
   constructor(private test: TestService) { }
 
   ngOnInit(): void {
-    this.marveldata = this.test.getData();
+    this.test.getData().subscribe((result) => {
+      console.log(result.data.results[0].name);
+      this.marveldata = result.data.results;
+      this.heroName = result.data.results[0].name;
+    });
+
+
   }
 
 }
